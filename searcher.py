@@ -40,15 +40,20 @@ print(f"[CONTRACT] Address: {CONTRACT_ADDRESS}")
 def check_and_fill_orders(private_key=None, executor_address=None):
     try:
         # Fetch all open orders
-        open_orders = contract.functions.getOpenOrders().call()
-        if not open_orders:
+        open_order_ids = contract.functions.getOpenOrders().call()
+        if not open_order_ids:
             print(f"[{time.strftime('%H:%M:%S')}] No open orders found in the contract.")
             return
 
-        print(f"\n[{time.strftime('%H:%M:%S')}] Found {len(open_orders)} open orders. Checking fillability...")
+        print(f"\n[{time.strftime('%H:%M:%S')}] Found {len(open_order_ids)} open orders. Checking fillability...")
         
-        for order in open_orders:
-            order_id = order[0]
+        for order_id in open_order_ids:
+            try:
+                order = contract.functions.getOrder(order_id).call()
+            except Exception as e:
+                print(f"  [SKIP] Could not fetch Order {order_id}: {e}")
+                continue
+                
             owner = order[1]
             token_in = order[2]
             token_out = order[3]
