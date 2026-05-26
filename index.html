@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaseRadar — The Limit Order Protocol for Base</title>
-    <meta name="description" content="BaseRadar is the first decentralized limit order protocol on Base. Stop getting wrecked by slippage. Set your price, walk away, and let MEV bots execute your trades.">
+    <title>Base FillerX — The Limit Order Protocol for Base</title>
+    <meta name="description" content="Base FillerX is the first decentralized limit order protocol on Base. Stop getting wrecked by slippage. Set your price, walk away, and let MEV bots execute your trades.">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -55,8 +55,9 @@
             background: rgba(247,245,240,0.85); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-        .logo-wrap { display: flex; align-items: center; overflow: hidden; height: 55px; }
-        .logo-wrap img { height: 190px; margin: -68px -25px; }
+        .logo-wrap { display: flex; align-items: center; overflow: hidden; height: 55px; text-decoration: none; }
+        .logo-text { font-family: 'Manrope', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.05em; color: var(--dark); }
+        .logo-text span { color: var(--sage); }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { font-size: 13px; font-weight: 500; text-decoration: none; color: var(--muted); transition: color .3s; }
         .nav-links a:hover { color: var(--dark); }
@@ -274,7 +275,7 @@
 
 <!-- ═══════════════ NAV ═══════════════ -->
 <nav>
-    <div class="logo-wrap"><img src="./BaseFillerX_logo.png" alt="BaseRadar"></div>
+    <a href="#" class="logo-wrap"><div class="logo-text">Base<span>FillerX</span></div></a>
     <div class="nav-links">
         <a href="https://basescan.org/address/0x84ED932B376a205aC34B007b0C09546573B6085E#code" target="_blank" class="btn-signin">Launch App</a>
     </div>
@@ -284,7 +285,7 @@
 <section class="hero">
     <div class="hero-badge reveal">Built for Base Mainnet</div>
     <h1 class="reveal d1">Stop getting wrecked by <em>slippage</em>.</h1>
-    <p class="hero-desc reveal d2">BaseRadar is the premier limit order protocol on Base. Set your exact entry or exit price, walk away, and let an army of MEV bots execute your trade the exact second the market hits your target.</p>
+    <p class="hero-desc reveal d2">Base FillerX is the premier limit order protocol on Base. Set your exact entry or exit price, walk away, and let an army of MEV bots execute your trade the exact second the market hits your target.</p>
     <div class="cta-group reveal d3">
         <a href="https://basescan.org/address/0x84ED932B376a205aC34B007b0C09546573B6085E#code" target="_blank" class="btn btn-primary">Start Trading ↗</a>
         <a href="#how" class="btn btn-outline">See How It Works</a>
@@ -418,7 +419,7 @@
         <div class="step-card reveal">
             <div class="step-num">1</div>
             <h3>Approve</h3>
-            <p>Connect your wallet and approve the BaseRadar contract to spend the exact amount of tokens you want to trade.</p>
+            <p>Connect your wallet and approve the Base FillerX contract to spend the exact amount of tokens you want to trade.</p>
         </div>
         <div class="step-card reveal d1">
             <div class="step-num">2</div>
@@ -472,9 +473,9 @@
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-    <img src="./BaseFillerX_logo.png" class="f-logo" alt="BaseRadar">
-    <p class="f-copy">&copy; 2026 BaseRadar. Non-custodial infrastructure.</p>
-    <p class="f-copy" style="font-size: 11px; margin-top: 8px;">Disclaimer: BaseRadar is non-custodial infrastructure. Always conduct your own research before trading.</p>
+    <div class="logo-text" style="font-size: 32px; margin-bottom: 16px; opacity: 0.8; justify-content: center; display: flex;">Base<span>FillerX</span></div>
+    <p class="f-copy">&copy; 2026 Base FillerX. Non-custodial infrastructure.</p>
+    <p class="f-copy" style="font-size: 11px; margin-top: 8px;">Disclaimer: Base FillerX is non-custodial infrastructure. Always conduct your own research before trading.</p>
 </footer>
 
 <script>
