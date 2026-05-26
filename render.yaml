@@ -1,0 +1,20 @@
+services:
+  - type: worker
+    name: baseradar-searcher-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python searcher.py"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: RPC_URL
+        sync: false
+      - key: EXECUTION_RPC_URL
+        sync: false
+      - key: CONTRACT_ADDRESS
+        sync: false
+      - key: SEARCHER_PRIVATE_KEY
+        sync: false
+      - key: SEARCHER_ADDRESS
+        sync: false

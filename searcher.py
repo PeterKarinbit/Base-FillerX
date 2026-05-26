@@ -6,7 +6,7 @@ from web3 import Web3
 from web3.middleware import geth_poa_middleware
 
 # Connect to Public Base RPC for polling (saves money/rate limits)
-READ_RPC_URL = "https://mainnet.base.org"
+READ_RPC_URL = os.getenv("RPC_URL", "https://mainnet.base.org")
 w3_read = Web3(Web3.HTTPProvider(READ_RPC_URL))
 w3_read.middleware_onion.inject(geth_poa_middleware, layer=0)
 
@@ -20,7 +20,7 @@ w3_write = Web3(Web3.HTTPProvider(EXECUTION_RPC_URL))
 w3_write.middleware_onion.inject(geth_poa_middleware, layer=0)
 
 # Contract Configurations
-CONTRACT_ADDRESS = "0x84ED932B376a205aC34B007b0C09546573B6085E"
+CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS", "0x84ED932B376a205aC34B007b0C09546573B6085E")
 
 # Load ABI
 try:
