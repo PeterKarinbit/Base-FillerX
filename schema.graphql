@@ -1,0 +1,27 @@
+type Order @entity {
+  id: ID! # String: OrderID
+  owner: Bytes! # address
+  tokenIn: Bytes! # address
+  tokenOut: Bytes! # address
+  amountIn: BigInt! # uint256
+  triggerPrice: BigInt! # uint256
+  minAmountOut: BigInt! # uint256
+  expiry: BigInt! # uint256
+  pairAddress: Bytes! # address
+  isBuyOrder: Boolean! # bool
+  status: String! # "Open", "Filled", "Cancelled"
+  createdAt: BigInt! # Block timestamp of creation
+  filledAt: BigInt # Block timestamp of fill
+  cancelledAt: BigInt # Block timestamp of cancellation
+  feeTaken: BigInt # uint256
+  createdAtTx: Bytes! # Transaction hash of creation
+  filledAtTx: Bytes # Transaction hash of fill
+  cancelledAtTx: Bytes # Transaction hash of cancellation
+}
+
+type ProtocolStat @entity {
+  id: ID! # Always "1"
+  totalOrdersPlaced: BigInt!
+  totalOrdersFilled: BigInt!
+  totalOrdersCancelled: BigInt!
+}

@@ -1,0 +1,29 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BaseLimitOrder
+    network: base
+    source:
+      address: "0x84ED932B376a205aC34B007b0C09546573B6085E"
+      abi: BaseLimitOrder
+      startBlock: 46465870
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Order
+        - ProtocolStat
+      abis:
+        - name: BaseLimitOrder
+          file: ./abis/BaseLimitOrder.json
+      eventHandlers:
+        - event: OrderPlaced(indexed uint256,indexed address,address,address,uint256,uint256,uint256,uint256,address,bool)
+          handler: handleOrderPlaced
+        - event: OrderFilled(indexed uint256,indexed address,uint256,uint256)
+          handler: handleOrderFilled
+        - event: OrderCancelled(indexed uint256,indexed address)
+          handler: handleOrderCancelled
+      file: ./src/mapping.ts
