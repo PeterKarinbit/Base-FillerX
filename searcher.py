@@ -104,6 +104,21 @@ def check_and_fill_orders(private_key=None, executor_address=None):
 
 # If run directly as a daemon
 if __name__ == "__main__":
+    # --- DUMMY SERVER FOR RENDER ---
+    import threading
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    class DummyHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"BaseRadar Searcher Bot is running!")
+    
+    port = int(os.getenv("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), DummyHandler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    print(f"[SERVER] Dummy web server running on port {port}")
+    # -------------------------------
+
     # Check if user passed credentials to actively execute fills
     pkey = os.getenv("SEARCHER_PRIVATE_KEY")
     addr = os.getenv("SEARCHER_ADDRESS")
