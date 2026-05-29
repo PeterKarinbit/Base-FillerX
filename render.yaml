@@ -4,7 +4,7 @@ services:
     env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python searcher.py"
-    plan: free
+    plan: starter
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
@@ -17,4 +17,18 @@ services:
       - key: SEARCHER_PRIVATE_KEY
         sync: false
       - key: SEARCHER_ADDRESS
+        sync: false
+
+  - type: worker
+    name: fillerx-telegram-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python tg_bot.py"
+    plan: starter
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: EXECUTION_RPC_URL
         sync: false
